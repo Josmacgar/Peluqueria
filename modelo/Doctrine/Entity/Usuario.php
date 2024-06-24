@@ -12,25 +12,11 @@ class Usuario {
         @ORM\GeneratedValue
     */
     private $idUsuario;
-    /**
-        @ORM\Column(type="string")
-    */
-    private $dni;
     
     /**
         @ORM\Column(type="string")
     */
     private $nombre;
-
-    /**
-        @ORM\Column(type="string")
-    */
-    private $apellidos;
-
-    /**
-        @ORM\Column(type="date")
-    */
-    private $fecha_nac;
     /**
         @ORM\Column(type="string")
     */
@@ -51,37 +37,10 @@ class Usuario {
         @ORM\Column(type="string")
     */
     private $rol;
-    /**
-        @ORM\ManyToMany(targetEntity="Reservas")
-        @ORM\JoinTable(name="reservas_cliente",
-            joinColumns={@ORM\JoinColumn(name="idUsuario", referencedColumnName="idUsuario")},
-            inverseJoinColumns={@ORM\JoinColumn(name="idReserva", referencedColumnName="idReserva", onDelete="CASCADE")}
-        )
-    */
 
     function __construct(){
     }
 
-
-    /**
-     * Get the value of dni
-     */ 
-    public function getDni()
-    {
-        return $this->dni;
-    }
-
-    /**
-     * Set the value of dni
-     *
-     * @return  self
-     */ 
-    public function setDni($dni)
-    {
-        $this->dni = $dni;
-
-        return $this;
-    }
 
     /**
      * Get the value of nombre
@@ -99,46 +58,6 @@ class Usuario {
     public function setNombre($nombre)
     {
         $this->nombre = $nombre;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of apellidos
-     */ 
-    public function getApellidos()
-    {
-        return $this->apellidos;
-    }
-
-    /**
-     * Set the value of apellidos
-     *
-     * @return  self
-     */ 
-    public function setApellidos($apellidos)
-    {
-        $this->apellidos = $apellidos;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of fecha_nac
-     */ 
-    public function getFecha_nac()
-    {
-        return $this->fecha_nac;
-    }
-
-    /**
-     * Set the value of fecha_nac
-     *
-     * @return  self
-     */ 
-    public function setFecha_nac($fecha_nac)
-    {
-        $this->fecha_nac = $fecha_nac;
 
         return $this;
     }
@@ -260,10 +179,8 @@ class Usuario {
     }
     
     public function __toString() {
-        return "Usuarios: " . $this->getDni() . " - "
+        return "Usuarios: " 
             . $this->getNombre() . " - "
-            . $this->getApellidos(). " - "
-            . $this->getFecha_nac()->format('Y-m-d H:i:s') . " - "
             . $this->getEmail() . " - "
             . $this->getContraseña() . " - "
             . $this->getTelefono() . " - "
