@@ -29,7 +29,7 @@
             <?php
             //se muestra login cuando no existe una sesion
             if (!isset($_SESSION['email'])) {
-                echo "<a class=\"btn btn-primary btn-xl text-uppercase\" href=\"/citascocina/vista/login.php\">Iniciar sesión</a>";
+                echo "<a class=\"btn btn-primary btn-xl text-uppercase\" href=\"/\">Iniciar sesión</a>";
             }
             ?>
 
