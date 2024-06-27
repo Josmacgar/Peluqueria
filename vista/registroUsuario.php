@@ -13,6 +13,7 @@ include("header.php");
     <link href="vista/assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/Peluqueria/vista/css/headers.css">
     <link rel="stylesheet" href="/Peluqueria/vista/css/registroUsuario.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 
@@ -25,7 +26,7 @@ include("header.php");
                 </div>
 
                 <div class="modal-body p-5 pt-0">
-                    <form action="../controlador/ctRegistroUsuario.php" method="post">
+                    <form action="../controlador/ctRegistroUsuario.php" method="post" id="formulario">
                     <div class="form-floating mb-3">
                             <input type="text" class="form-control rounded-3" id="nombre" name="nombre" placeholder="name@example.com">
                             <label for="nombre">Nombre</label>
@@ -46,11 +47,13 @@ include("header.php");
                         <small class="text-body-secondary">Al hacer click, aceptas los términos de uso</small>
 
                     </form>
+                    <p id="error" ></p>
                 </div>
             </div>
         </div>
     </div>
     <script src="/Peluqueria/vista/js/header.js"></script>
+    <script src="/Peluqueria/vista/js/registroUsuario.js"></script>
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 </body>
 
