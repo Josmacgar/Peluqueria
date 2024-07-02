@@ -1,27 +1,18 @@
 <?php
-
-use Doctrine\Common\Collections\ArrayCollection;
-
-include("../modelo/conexion_BD.php");
-include("../modelo/Doctrine/bootstrap.php");
-include("../modelo/Doctrine/Entity/Usuario.php");
-
+include ("../modelo/conexion_BD.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
-    global $entityManager;
 
-    function asd($entityManager) {
+    function asd(){
         $email = $_POST['email'];
-        $result = $entityManager->getRepository("Usuario")->findOneBy(array('email' => $email));
-
-        $res = true;
-        if (!$result) { 
-            $res = false;
-        }
-        echo $res;
-        return $res;
+    $sqlFindCorreo = "SELECT * FROM Usuario where email = '$email'";
+    $result = $GLOBALS["bd"]->query($sqlFindCorreo);
+    $res = true;
+    if ($result->rowCount() == 0) {
+        $res = false;
     }
-
-    echo asd($entityManager);
-
+    echo $res;
+    return $res;
+    }
+    echo asd();
 }
+?>
