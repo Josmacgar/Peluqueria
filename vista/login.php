@@ -13,6 +13,7 @@ include("header.php");
     <link href="vista/assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/Peluqueria/vista/css/headers.css">
     <link rel="stylesheet" href="/Peluqueria/vista/css/registroUsuario.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 
@@ -25,24 +26,26 @@ include("header.php");
                 </div>
 
                 <div class="modal-body p-5 pt-0">
-                    <form class="">
+                    <form class="" id="formulario" action="/Peluqueria/controlador/ctLogin.php" method="post">
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Usuario</label>
+                            <input type="text" class="form-control rounded-3" name="email" id="email" placeholder="name@example.com">
+                            <label for="email">Usuario</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password">
-                            <label for="floatingPassword">Contraseña</label>
+                            <input type="password" class="form-control rounded-3" name="password" id="password" placeholder="Password">
+                            <label for="password">Contraseña</label>
                         </div>
                         <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Sign up</button>
                         <small class="text-body-secondary">Al hacer click, aceptas los términos de uso</small>
 
                     </form>
+                    <p id="error" ></p>
                 </div>
             </div>
         </div>
     </div>
     <script src="/Peluqueria/vista/js/header.js"></script>
+    <script src="/Peluqueria/vista/js/login.js"></script>
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 </body>
 
