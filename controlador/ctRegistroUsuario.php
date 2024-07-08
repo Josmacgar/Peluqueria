@@ -9,7 +9,8 @@ if ($_SERVER["REQUEST_METHOD"]== "POST") {
         $usuario = new Usuario();
         $usuario->setNombre($_POST['nombre']);
         $usuario->setEmail($_POST['email']);
-        $usuario->setContraseña($_POST['password']);
+        $contraseña= hash('sha256',$_POST['password']);
+        $usuario->setContraseña($contraseña);
         $usuario->setTelefono($_POST['telefono']);
         $usuario->setBaneado(0);
         $usuario->setRol("cliente");
