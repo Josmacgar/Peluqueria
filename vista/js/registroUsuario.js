@@ -13,11 +13,9 @@ function comprobarEmail(evt){
        data:cadena
    }).done(function(respuesta){
     if (!respuesta){
-        alert('si');
         //enviamos el submit
         form.submit();
     }else {
-        alert('no');
         document.getElementById('error').innerHTML="credenciales erróneas";
     }
    });

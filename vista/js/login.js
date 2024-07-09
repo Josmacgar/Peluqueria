@@ -13,11 +13,9 @@ function comprobarEmail(evt){
        data:cadena
    }).done(function(respuesta){
     if (respuesta){
-        alert('usuario NO registrado');
         //enviamos el submit
         form.submit();
     }else {
-        alert('usuario registrado');
         document.getElementById('error').innerHTML="credenciales erróneas";
     }
    });

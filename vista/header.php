@@ -26,13 +26,17 @@ session_start();
 
             <ul class="nav nav-pills" id="navbar">
                 <li class="nav-item"><a href="/Peluqueria/index.php" class="nav-link active" aria-current="page">Home</a></li>
-                <li class="nav-item"><a href="/Peluqueria/vista/registroUsuario.php" class="nav-link">Registrarse</a></li>
-                <li class="nav-item"><a href="/Peluqueria/vista/login.php" class="nav-link">Login</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-                
                 <?php
-                //se muestra el logout si existe una sesion
+                    if (!isset($_SESSION['email'])) {
+                     echo "<li class=\"nav-item\"><a href=\"/Peluqueria/vista/registroUsuario.php\" class=\"nav-link\">Registrarse</a></li>";
+                     echo "<li class=\"nav-item\"><a href=\"/Peluqueria/vista/login.php\" class=\"nav-link\">Login</a></li>";
+                    }
+                ?>
+               
+                <?php
+                //se muestran acciones cuando existe una sesion si existe una sesion
                     if (isset($_SESSION['email'])) {
+                      echo "<li class=\"nav-item\"><a href=\"/Peluqueria/vista/citas.php\" class=\"nav-link\">Citas</a></li>";
                       echo "<li class=\"nav-item\"><a href=\"/Peluqueria/controlador/cerrarSesion.php\" class=\"nav-link\">Logout</a></li>";
                       echo "<li class=\"nav-item d-flex align-items-center\"><img src=\"/Peluqueria/vista/img/usuario.png\"> <span>{$_SESSION['nombre']}</span></li>";
                       
