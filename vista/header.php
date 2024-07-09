@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +29,16 @@
                 <li class="nav-item"><a href="/Peluqueria/vista/registroUsuario.php" class="nav-link">Registrarse</a></li>
                 <li class="nav-item"><a href="/Peluqueria/vista/login.php" class="nav-link">Login</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                
+                <?php
+                //se muestra el logout si existe una sesion
+                    if (isset($_SESSION['email'])) {
+                      echo "<li class=\"nav-item\"><a href=\"/Peluqueria/controlador/cerrarSesion.php\" class=\"nav-link\">Logout</a></li>";
+                      echo "<li class=\"nav-item d-flex align-items-center\"><img src=\"/Peluqueria/vista/img/usuario.png\"> <span>{$_SESSION['nombre']}</span></li>";
+                      
+                    }
+                ?>
+                
             </ul>
         </header>
     </div>

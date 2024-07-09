@@ -20,7 +20,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['rol'] = $credenciales[6];
         header("Location:../index.php");
     } else {
-            
-
+        header("Location:../vista/login.php?error=true");
     }
 }

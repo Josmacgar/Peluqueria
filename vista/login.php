@@ -39,7 +39,13 @@ include("header.php");
                         <small class="text-body-secondary">Al hacer click, aceptas los términos de uso</small>
 
                     </form>
-                    <p id="error" ></p>
+                    <p id="error">
+                        <?php
+                            if (isset($_GET['error'])) {
+                                echo "credenciales erróneas";
+                            }
+                        ?>
+                    </p>
                 </div>
             </div>
         </div>
