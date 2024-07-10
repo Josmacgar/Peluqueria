@@ -54,7 +54,7 @@ include("../modelo/Doctrine/bootstrap.php");
             <tr>
               <th scope="row"><?php echo $contador ?></th>
               <td><?php echo $cita->getIdCitas(); ?></td>
-              <td><?php echo $cita->getFecha_cita()->format('d-m-y'); ?></td>
+              <td><?php echo $cita->getFecha_cita()->format('d-m-Y--H:i'); ?></td>
               <?php
               // estructura switch que cambia el color del estado dependiendo del estado en el 
               // que se encuentre

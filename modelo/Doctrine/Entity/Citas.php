@@ -19,7 +19,7 @@ class Citas
      */
     private $estado;
     /**
-        @ORM\Column(type="date")
+        @ORM\Column(type="datetime")
      */
     private $fecha_cita;
     /**
