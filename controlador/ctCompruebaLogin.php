@@ -1,6 +1,5 @@
 <?php
 include ("../modelo/conexion_BD.php");
-include("../modelo/conexion_BD.php");
 include("../modelo/Doctrine/bootstrap.php");
 include("../modelo/Doctrine/Entity/Usuario.php");
 

@@ -37,9 +37,11 @@ session_start();
                 //se muestran acciones cuando existe una sesion si existe una sesion
                     if (isset($_SESSION['email'])) {
                       echo "<li class=\"nav-item\"><a href=\"/Peluqueria/vista/citas.php\" class=\"nav-link\">Citas</a></li>";
+                      if ($_SESSION['rol']=='admin') {
+                        echo "<li class=\"nav-item\"><a href=\"/Peluqueria/vista/calendario.php\" class=\"nav-link\">Mis citas</a></li>";
+                      }
                       echo "<li class=\"nav-item\"><a href=\"/Peluqueria/controlador/cerrarSesion.php\" class=\"nav-link\">Logout</a></li>";
                       echo "<li class=\"nav-item d-flex align-items-center\"><img src=\"/Peluqueria/vista/img/usuario.png\"> <span>{$_SESSION['nombre']}</span></li>";
-                      
                     }
                 ?>
                 
