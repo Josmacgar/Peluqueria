@@ -1,0 +1,11 @@
+#botonAniadir{
+    text-align: right;
+    margin-right: 5%;
+    margin-top: 1.5%;
+}
+#botonAniadir:hover{
+    cursor: pointer;
+    }
+#imagenAniadir{
+    scale: 1.5;
+}

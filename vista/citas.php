@@ -14,12 +14,17 @@ include("../modelo/Doctrine/bootstrap.php");
   <link href="vista/assets/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/Peluqueria/vista/css/headers.css">
   <link rel="stylesheet" href="/Peluqueria/vista/css/registroUsuario.css">
+  <link rel="stylesheet" href="/Peluqueria/vista/css/registroCitas.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
   <div class="bd-example-snippet bd-code-snippet">
+    <?php
+    //if que muestra el icono de añadir noticias solo cuando el usuario de la sesion es profesor
+       echo " <p id=\"botonAniadir\"><a href=\"/Peluqueria/vista/registroCItas.php\"><img id=\"imagenAniadir\" src=\"/Peluqueria/vista/img/plus-circle.svg\"></a></p>";
+    ?>
     <?php
     //obtenemos el usuario
     $usuario = $entityManager->getRepository("usuario")
@@ -30,59 +35,58 @@ include("../modelo/Doctrine/bootstrap.php");
     $citas = $entityManager->getRepository("citas")
       ->findBy(array('usuario' => $idUsuario), ['fecha_cita' => 'ASC']);
     if (!empty($citas)) {
-     
+
     ?>
-    <div class="bd-example m-0 border-0">
+      <div class="bd-example m-0 border-0">
 
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">idCita</th>
-            <th scope="col">Fecha</th>
-            <th scope="col">Estado</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <?php
-          // contador para llevar una cuenta de citas en la tabla
-          $contador = 1;
-          foreach ($citas as $cita) {
-
-          ?>
+        <table class="table table-striped">
+          <thead>
             <tr>
-              <th scope="row"><?php echo $contador ?></th>
-              <td><?php echo $cita->getIdCitas(); ?></td>
-              <td><?php echo $cita->getFecha_cita()->format('d-m-Y--H:i'); ?></td>
-              <?php
-              // estructura switch que cambia el color del estado dependiendo del estado en el 
-              // que se encuentre
-              switch ($cita->getEstado()) {
-                case 'pendiente':
-                  echo "<td style='color: orange;'>" . $cita->getEstado() . "</td>";
-                  break;
-                case 'aceptada':
-                  echo "<td style='color: green;'>" . $cita->getEstado() . "</td>";
-                  break;
-                case 'rechazada':
-                  echo "<td style='color: red;'>" . $cita->getEstado() . "</td>";
-                  break;
-              }
-              ?>
+              <th scope="col">#</th>
+              <th scope="col">idCita</th>
+              <th scope="col">Fecha</th>
+              <th scope="col">Estado</th>
             </tr>
-          <?php
-            $contador += 1;
-          }
-          ?>
-        </tbody>
-      </table>
-    </div>
+          </thead>
+
+          <tbody>
+            <?php
+            // contador para llevar una cuenta de citas en la tabla
+            $contador = 1;
+            foreach ($citas as $cita) {
+
+            ?>
+              <tr>
+                <th scope="row"><?php echo $contador ?></th>
+                <td><?php echo $cita->getIdCitas(); ?></td>
+                <td><?php echo $cita->getFecha_cita()->format('d-m-Y--H:i'); ?></td>
+                <?php
+                // estructura switch que cambia el color del estado dependiendo del estado en el 
+                // que se encuentre
+                switch ($cita->getEstado()) {
+                  case 'pendiente':
+                    echo "<td style='color: orange;'>" . $cita->getEstado() . "</td>";
+                    break;
+                  case 'aceptada':
+                    echo "<td style='color: green;'>" . $cita->getEstado() . "</td>";
+                    break;
+                  case 'rechazada':
+                    echo "<td style='color: red;'>" . $cita->getEstado() . "</td>";
+                    break;
+                }
+                ?>
+              </tr>
+            <?php
+              $contador += 1;
+            }
+            ?>
+          </tbody>
+        </table>
+      </div>
     <?php
-     }
-     else {
+    } else {
       echo "<div class='d-flex justify-content-center align-items-center' style='height: 100vh;'><h1>No hay citas</h1></div>";
-     }
+    }
     ?>
   </div>
   <script src="/Peluqueria/vista/js/header.js"></script>
