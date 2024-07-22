@@ -27,6 +27,10 @@ class Citas
      */
     private $fecha_cita;
     /**
+        @ORM\Column(type="datetime")
+     */
+    private $fecha_fin;
+    /**
         @ORM\ManyToOne(targetEntity="usuario")
         @ORM\JoinColumn(name="usuario",referencedColumnName="idUsuario")
      */
@@ -131,14 +135,33 @@ class Citas
 
         return $this;
     }
+        /**
+     * Get the value of fecha_fin
+     */ 
+    public function getFecha_fin()
+    {
+        return $this->fecha_fin;
+    }
+
+    /**
+     * Set the value of fecha_fin
+     *
+     * @return  self
+     */ 
+    public function setFecha_fin($fecha_fin)
+    {
+        $this->fecha_fin = $fecha_fin;
+
+        return $this;
+    }
     public function __toString()
     {
         return "Citas: "
             .$this->getTitulo() . " - "
             . $this->getEstado() . " - "
             . $this->getFecha_cita() . " - "
+            . $this->getFecha_fin() . " - "
             . $this->getUsuario() . " - ";
     }
-
 
 }

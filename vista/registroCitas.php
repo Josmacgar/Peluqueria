@@ -26,7 +26,7 @@ include("header.php");
                 </div>
 
                 <div class="modal-body p-5 pt-0">
-                    <form action="../controlador/ctRegistroUsuario.php" method="post" id="formulario">
+                    <form action="../controlador/ctRegistroCitas.php" method="post" id="formulario">
                     <div class="form-floating mb-3">
                             <input type="text" class="form-control rounded-3" id="titulo" name="titulo" placeholder="name@example.com">
                             <label for="nombre">Titulo</label>
