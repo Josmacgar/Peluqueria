@@ -29,11 +29,11 @@ include("header.php");
                     <form action="../controlador/ctRegistroCitas.php" method="post" id="formulario">
                     <div class="form-floating mb-3">
                             <input type="text" class="form-control rounded-3" id="titulo" name="titulo" placeholder="name@example.com">
-                            <label for="nombre">Titulo</label>
+                            <label for="titulo">Titulo</label>
                         </div>
                         <div class="form-floating mb-3">
                             <input type="datetime-local" class="form-control rounded-3" id="fecha" name="fecha" placeholder="name@example.com">
-                            <label for="email">Fecha</label>
+                            <label for="fecha">Fecha</label>
                         </div>
                         <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Registro</button>
                         <small class="text-body-secondary">Al hacer click, aceptas los términos de uso</small>
