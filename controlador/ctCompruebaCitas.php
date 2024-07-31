@@ -15,10 +15,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $comprobar = 0;
         foreach ($result as $valor) {
             $comprobar = 0;
-            $value = $valor->getTitulo();
             //   comprobamos si la fecha que insertamos esta entre dos fechas
-            $fecha_inicio = new DateTime($value->getFecha_cita());
-            $fecha_fin =new DateTime($value->getFecha_fin()); 
+            $fecha_inicio = $valor->getFecha_cita();
+            $fecha_fin =$valor->getFecha_fin(); 
+            //si la fecha esta entre el rango no se realiza la cita
             if ($fecha >= $fecha_inicio && $fecha <= $fecha_fin) {
                 $comprobar = 1;
                 break;
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         $res = true;
-        if ($comprobar = 0) {
+        if ($comprobar == 0) {
             $res = false;
         }
         echo $res;
