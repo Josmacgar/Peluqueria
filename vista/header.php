@@ -42,6 +42,7 @@ session_start();
 
                       if ($_SESSION['rol']=='admin') {
                         echo "<li class=\"nav-item\"><a href=\"/Peluqueria/vista/calendario.php\" class=\"nav-link\">Mis citas</a></li>";
+                        echo "<li class=\"nav-item\"><a href=\"/Peluqueria/vista/menu.php\" class=\"nav-link\">Menú</a></li>";
                       }
                       echo "<li class=\"nav-item\"><a href=\"/Peluqueria/controlador/cerrarSesion.php\" class=\"nav-link\">Logout</a></li>";
                       echo "<li class=\"nav-item d-flex align-items-center\"><img src=\"/Peluqueria/vista/img/usuario.png\"> <span>{$_SESSION['nombre']}</span></li>";
