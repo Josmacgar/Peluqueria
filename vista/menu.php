@@ -122,7 +122,7 @@ include("header.php");
                     <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="#">
+                                <a class="nav-link d-flex align-items-center gap-2 active" id="cargarContenido" aria-current="page" href="#">
                                     <svg class="bi">
                                         <use xlink:href="#house-fill" />
                                     </svg>
@@ -130,7 +130,7 @@ include("header.php");
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                                <a class="nav-link d-flex align-items-center gap-2" id="cargarContenido" href="#">
                                     <svg class="bi">
                                         <use xlink:href="#file-earmark" />
                                     </svg>
@@ -138,7 +138,7 @@ include("header.php");
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                                <a class="nav-link d-flex align-items-center gap-2" id="cargarContenido" href="#">
                                     <svg class="bi">
                                         <use xlink:href="#graph-up" />
                                     </svg>
@@ -151,7 +151,7 @@ include("header.php");
 
                         <ul class="nav flex-column mb-auto">
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                                <a class="nav-link d-flex align-items-center gap-2" id="cargarContenido" data-archivo="tabla.html" href="#">
                                     <svg class="bi">
                                         <use xlink:href="#gear-wide-connected" />
                                     </svg>
@@ -159,7 +159,7 @@ include("header.php");
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2" href="/Peluqueria/controlador/cerrarSesion.php">
+                                <a class="nav-link d-flex align-items-center gap-2"  href="/Peluqueria/controlador/cerrarSesion.php">
                                     <svg class="bi">
                                         <use xlink:href="#door-closed" />
                                     </svg>
@@ -188,14 +188,29 @@ include("header.php");
                     </div>
                 </div>
 
-                <!-- esto crea un espacio en blanco al final de la pagina -->
-                <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+                <!-- grafico que al no cargar pone mas largo el menu de la izquierda -->
+                <!-- <canvas class="my-4 w-100" id="myChart" width="900" height="50"></canvas> -->
+<div id="contenido">
 
+</div>
 
         </div>
         </main>
     </div>
     </div>
+    <script>
+        $(document).ready(function() {
+            $('#cargarContenido').click(function(event) {
+                event.preventDefault(); // Prevenir comportamiento predeterminado del enlace
+
+                // Obtener el nombre del archivo a cargar desde el atributo data-archivo
+                var archivo = $(this).data('archivo');
+
+                // Realizar la carga dinámica del contenido HTML
+                $('#contenido').load(archivo);
+            });
+        });
+    </script>
     <script src="/Peluqueria/vista/js/header.js"></script>
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 </body>

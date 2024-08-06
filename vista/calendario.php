@@ -16,7 +16,7 @@ include("header.php");
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <h2 id="titulo">Javascript Fullcalendar</h2>
+    <h2 id="titulo">Citas</h2>
     <div class="container">
      <div id="calendar"></div>
     </div>
